@@ -14,3 +14,10 @@
 #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
 #   end
 # end
+
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins 'https://skaz0110.github.io'
+    resource '*', headers: :any, methods: [:get, :post, :patch, :put]
+  end
+end
